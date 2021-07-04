@@ -13,7 +13,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import static org.junit.Assert.assertEquals;
 
 
-public class ex1 {
+public class Ex1 {
+
     private WebDriver driver;
 
     @BeforeClass
@@ -51,6 +52,7 @@ public class ex1 {
 
             //driver.close();
     }
+
     @Test
     public void test() {
         WebElement loginIcon = driver.findElement (By.id("user-icon"));
