@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Addition, subtraction, multiplication and division">
+<test name="Sum">
+    <classes>
+        <class name="TestAdd"/>
+    </classes>
+</test> <!-- Test -->
+<test name="TestSubtraction">
+    <classes>
+        <class name="TestSubtraction"/>
+    </classes>
+</test> <!-- Test -->
+<test name="TestMultiply">
+    <classes>
+        <class name="TestMultiply"/>
+    </classes>
+</test> <!-- Test -->
+<test name="TestDivide">
+    <classes>
+        <class name="TestDivision"/>
+    </classes>
+</test> <!-- Test -->
+</suite> <!-- Suite -->

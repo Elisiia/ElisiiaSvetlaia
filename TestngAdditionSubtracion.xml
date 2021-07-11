@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="add and subtract operations">
+    <test name="Sum">
+        <classes>
+            <class name="TestAdd"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="TestSubtraction">
+        <classes>
+            <class name="TestSubtraction"/>
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->
