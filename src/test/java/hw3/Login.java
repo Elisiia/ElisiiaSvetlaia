@@ -1,8 +1,7 @@
-package test;
+package hw3;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -38,16 +37,7 @@ public class Login {
     public void clickLogin(){
         loginButton.click();    }
 
-    public void toLogin() { //(String login, String Password) {
-        driver = new ChromeDriver();
-        driver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
-        loginIcon.click();
-        loginForm.sendKeys("Roman");
-        passwordForm.sendKeys("Jdi1234");
-        loginButton.click();
-    }
-
-    public void loginToGuru99(String strUserName,String strPasword){
+    public void loginTo(String strUserName,String strPasword){
         this.setLoginName(strUserName);
         this.setPasswordForm(strPasword);
         this.clickLogin();

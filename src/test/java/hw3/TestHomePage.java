@@ -1,4 +1,4 @@
-package test;
+package hw3;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -27,10 +27,11 @@ public class TestHomePage {
     @Test
     public void test_Home_Page_Appear_Correct() {
         objLogin = new Login(driver);
+        objLogin.openLoginForm();
 //        String loginPageTitle = objLogin.getLoginTitle();
 //        Assert.assertTrue(loginPageTitle.toLowerCase().contains("guru99 bank"));
-        objLogin.loginToGuru99("mgr123", "mgr!23");
-        objHomePage = new HomePage(driver);
+        objLogin.loginTo("Roman", "Jdi1234");
+//        objHomePage = new HomePage(driver);
 //        Assert.assertTrue(objHomePage.getHomePageDashboardUserName().toLowerCase().contains("manger id : mgr123"));
 
     }
