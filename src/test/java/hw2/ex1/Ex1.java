@@ -13,8 +13,6 @@ import org.testng.asserts.SoftAssert;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-
 
 public class Ex1 {
 
