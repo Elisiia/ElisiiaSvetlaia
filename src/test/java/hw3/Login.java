@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class Login {
+
+    //login
     WebDriver driver;
     @FindBy(id="user-icon")
     WebElement loginIcon;
@@ -15,7 +17,8 @@ public class Login {
     WebElement passwordForm;
     @FindBy(id="login-button")
     WebElement loginButton;
-
+    @FindBy (id="user-name")
+    WebElement username;
 
     public Login(WebDriver driver) {
         this.driver = driver;
@@ -34,8 +37,7 @@ public class Login {
         passwordForm.sendKeys(strPasswd);
     }
 
-    public void clickLogin(){
-        loginButton.click();    }
+    public void clickLogin(){ loginButton.click();    }
 
     public void loginTo(String strUserName,String strPasword){
         this.setLoginName(strUserName);
