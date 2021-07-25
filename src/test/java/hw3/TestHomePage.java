@@ -1,10 +1,13 @@
 package hw3;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class TestHomePage {
 
@@ -24,7 +27,7 @@ public class TestHomePage {
         driver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
     }
 
-    @Test
+    @BeforeClass
     public void test_Home_Page_Appear_Correct() {
         objLogin = new Login(driver);
         objLogin.openLoginForm();
@@ -33,7 +36,12 @@ public class TestHomePage {
         objLogin.loginTo("Roman", "Jdi1234");
 //        objHomePage = new HomePage(driver);
 //        Assert.assertTrue(objHomePage.getHomePageDashboardUserName().toLowerCase().contains("manger id : mgr123"));
-
     }
-
+    @Test
+    public void isLogged() {
+        SoftAssert isLogged = new SoftAssert();
+        WebElement username = driver.findElement(By.id("user-name"));
+        //assertEquals(username, "ROMAN IOVLEV");
+        isLogged.assertEquals(username, "ROMAN IOVLEV");
+    }
 }
