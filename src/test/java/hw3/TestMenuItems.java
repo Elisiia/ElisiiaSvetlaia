@@ -21,13 +21,7 @@ public class TestMenuItems {
         return new Object[][] {{objMenuItems.homeItem, "HOME"}, {objMenuItems.contactItem, "CONTACT FORM"},
                 {objMenuItems.serviceItem, "SERVICE"}, {objMenuItems.getMetalsItem, "METALS & COLORS"}};
     }
-
-    //to do
-    @DataProvider(name="ImagesVsTexts")
-    public Object[][] ImagesVsTexts() {
-        return new Object[][] {};
-    }
-
+    
     @BeforeClass
     public static void setupClass() {
         WebDriverManager.chromedriver().setup();
