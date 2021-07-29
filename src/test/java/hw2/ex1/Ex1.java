@@ -119,14 +119,14 @@ public class Ex1 {
         buttonInFrameExist.assertAll();
     }
 
-    @Test
-    public void switchToFrame() {
-        for (WebElement elem :driver.findElements(By.tagName("iframe"))) {
-            driver.switchTo().frame(elem);
-            System.out.println("nyan");
-            driver.switchTo().parentFrame();
-        }
-    }
+//    @Test
+//    public void switchToFrame() {
+//        for (WebElement elem :driver.findElements(By.tagName("iframe"))) {
+//            driver.switchTo().frame(elem);
+//            System.out.println("nyan");
+//            driver.switchTo().parentFrame();
+//        }
+//    }
 
     @Test
     public void verticalMenu() {
