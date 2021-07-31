@@ -13,8 +13,6 @@ import org.testng.asserts.SoftAssert;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-
 
 public class Ex1 {
 
@@ -83,13 +81,27 @@ public class Ex1 {
 
     @Test
     public void fourPictures() {
-        SoftAssert isExistMenu = new SoftAssert();
+        SoftAssert isPictureExist = new SoftAssert();
         for (int i = 1; i <= 4; i++) {
             String xpath = "/html/body/div/div[2]/main/div[2]/div[2]/div[" + i + "]/div/div/span";
             WebElement picture = driver.findElement(By.xpath(xpath));
-            isExistMenu.assertTrue(picture.isDisplayed());
+            isPictureExist.assertTrue(picture.isDisplayed());
         }
-        isExistMenu.assertAll();
+        isPictureExist.assertAll();
+    }
+
+    @Test
+    public void textUnderPictures (){
+        SoftAssert textUnderPictureExist = new SoftAssert();
+        WebElement firstText = driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div[2]/div[1]/div/span"));
+        textUnderPictureExist.assertEquals(firstText.getText(), "To include good practices\nand ideas from successful\nEPAM project");
+        WebElement secondText = driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div[2]/div[2]/div/span"));
+        textUnderPictureExist.assertEquals(secondText.getText(), "To be flexible and\ncustomizable");
+        WebElement thirdText = driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div[2]/div[3]/div/span"));
+        textUnderPictureExist.assertEquals(thirdText.getText(), "To be multiplatform");
+        WebElement fourthText = driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div[2]/div[4]/div/span"));
+        textUnderPictureExist.assertEquals(fourthText.getText(), "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…");
+        textUnderPictureExist.assertAll();
     }
 
     @Test
