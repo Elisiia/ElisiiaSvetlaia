@@ -94,13 +94,13 @@ public class Ex1 {
     public void textUnderPictures (){
         SoftAssert textUnderPictureExist = new SoftAssert();
         WebElement firstText = driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div[2]/div[1]/div/span"));
-        //textUnderPictureExist.assertEquals(firstText.getText(), "To include good practices\\nand ideas from successful\\nEPAM project");
-        //WebElement secondText = driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div[2]/div[2]/div/span"));
-        //textUnderPictureExist.assertEquals(secondText.getText(), "To be flexible and\\ncustomizable");
+        textUnderPictureExist.assertEquals(firstText.getText(), "To include good practices\nand ideas from successful\nEPAM project");
+        WebElement secondText = driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div[2]/div[2]/div/span"));
+        textUnderPictureExist.assertEquals(secondText.getText(), "To be flexible and\ncustomizable");
         WebElement thirdText = driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div[2]/div[3]/div/span"));
         textUnderPictureExist.assertEquals(thirdText.getText(), "To be multiplatform");
-        //WebElement fourthText = driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div[2]/div[4]/div/span"));
-        //textUnderPictureExist.assertEquals(fourthText.getText(), "Already have good base\\n(about 20 internal and\\nsome external projects),\\nwish to get more…");
+        WebElement fourthText = driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div[2]/div[4]/div/span"));
+        textUnderPictureExist.assertEquals(fourthText.getText(), "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…");
         textUnderPictureExist.assertAll();
     }
 
