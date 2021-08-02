@@ -21,7 +21,7 @@ public class Frames {
     WebElement username;
 
     @FindBy (tagName="iframe")
-    WebElement
+    WebElement frame;
 
     public Frames(WebDriver driver) {
         this.driver = driver;

@@ -38,22 +38,20 @@ public class TestMenuItems {
         objLogin = new Login(driver);
         objMenuItems = new MenuItems(driver);
         objLogin.openLoginForm();
-//        String loginPageTitle = objLogin.getLoginTitle();
-//        Assert.assertTrue(loginPageTitle.toLowerCase().contains("guru99 bank"));
         objLogin.loginTo("Roman", "Jdi1234");
-//        objMenuItems = new MenuItems(driver);
-//        Assert.assertTrue(objMenuItems.getHomePageDashboardUserName().toLowerCase().contains("manger id : mgr123"));
+
     }
     @Test
     public void isLogged() {
         SoftAssert isLogged = new SoftAssert();
-        //assertEquals(username, "ROMAN IOVLEV");
         Assert.assertEquals(objLogin.username.getText(), "ROMAN IOVLEV");
+        isLogged.assertAll();
     }
 
     @Test(dataProvider = "menuItems")
     public void isMenuDisplayed(WebElement webElem, String menuTextItem) {
         SoftAssert isExistMenu = new SoftAssert();
         isExistMenu.assertEquals(webElem.getText(), menuTextItem);
+        isExistMenu.assertAll();
     }
 }
