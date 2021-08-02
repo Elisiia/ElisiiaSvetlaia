@@ -10,6 +10,10 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 public class TestMenuItems {
 
     private WebDriver driver;
@@ -35,12 +39,24 @@ public class TestMenuItems {
 
     @BeforeClass
     public void test_Home_Page_Appear_Correct() {
+        Properties properties = loadProperties();
         objLogin = new Login(driver);
         objMenuItems = new MenuItems(driver);
         objLogin.openLoginForm();
-        objLogin.loginTo("Roman", "Jdi1234");
-
+        objLogin.loginTo(properties.getProperty("page.user"), properties.getProperty("page.password"));
+//        objLogin.loginTo("Roman", "Jdi1234");
     }
+
+    private Properties loadProperties() {
+        try (InputStream input = TestMenuItems.class.getClassLoader().getResourceAsStream("resources.properties")) {
+            Properties prop = new Properties();
+            prop.load(input);
+            return prop;
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
     @Test
     public void isLogged() {
         SoftAssert isLogged = new SoftAssert();
