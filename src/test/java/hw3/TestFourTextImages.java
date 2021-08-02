@@ -15,14 +15,14 @@ public class TestFourTextImages {
 
 
     @DataProvider(name="urlAndTexts")
-        public Object[][] dpMethod(){
+    public Object[][] dpMethod(){
             return new Object[][] {
                     {objFourTextImages.firstText,"To include good practices\nand ideas from successful\nEPAM project"},
                     {objFourTextImages.secondText, "To be flexible and\ncustomizable"},
                     {objFourTextImages.thirdText, "To be multiplatform"},
                     {objFourTextImages.fourthText, "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…"}
             };
-        }
+    }
 
     @BeforeClass
     public static void setupClass() { WebDriverManager.chromedriver().setup();}
@@ -30,6 +30,7 @@ public class TestFourTextImages {
     @BeforeClass
     public void setupTest() {
         driver = new ChromeDriver();
+        objFourTextImages = new FourTextImages(driver);
         driver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
     }
 
