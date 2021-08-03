@@ -2,11 +2,9 @@ package hw3;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -14,37 +12,22 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class TestMenuItems {
-
+public class TestRadioAndCheckbox {
     private WebDriver driver;
-    Login objLogin;
-    MenuItems objMenuItems;
     Properties properties = loadProperties();
+    Login objLogin;
+    RadioAndCheckbox objRadioAndCheckbox;
 
-    @DataProvider(name="menuItems")
-    public Object[][] dpMethod() {
-        return new Object[][] {{objMenuItems.homeItem, "HOME"}, {objMenuItems.contactItem, "CONTACT FORM"},
-                {objMenuItems.serviceItem, "SERVICE"}, {objMenuItems.getMetalsItem, "METALS & COLORS"}};
-    }
-    
     @BeforeClass
-    public static void setupClass() {
-        WebDriverManager.chromedriver().setup();
-    }
+    public static void setupClass() { WebDriverManager.chromedriver().setup();}
 
     @BeforeClass
     public void setupTest() {
         driver = new ChromeDriver();
-        driver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
-    }
-
-    @BeforeClass
-    public void test_Home_Page_Appear_Correct() {
+        objRadioAndCheckbox = new RadioAndCheckbox(driver);
         objLogin = new Login(driver);
-        objMenuItems = new MenuItems(driver);
-        objLogin.openLoginForm();
+        driver.navigate().to(properties.getProperty("page.homeUrl"));
         objLogin.loginTo(properties.getProperty("page.user"), properties.getProperty("page.password"));
-//        objLogin.loginTo("Roman", "Jdi1234");
     }
 
     private Properties loadProperties() {
@@ -63,11 +46,15 @@ public class TestMenuItems {
         Assert.assertEquals(objLogin.username.getText(), properties.getProperty("page.expectedUsername"));
         isLogged.assertAll();
     }
-
-    @Test(dataProvider = "menuItems")
-    public void isMenuDisplayed(WebElement webElem, String menuTextItem) {
-        SoftAssert isExistMenu = new SoftAssert();
-        isExistMenu.assertEquals(webElem.getText(), menuTextItem);
-        isExistMenu.assertAll();
+    @Test
+    public void TestRadioAndCheckbox() {
+        SoftAssert elemWorks = new SoftAssert();
+        driver.navigate().to(properties.getProperty("page.serviceUrl"));
+        objRadioAndCheckbox.waterCheckBox.click();
+        objRadioAndCheckbox.windCheckBox.click();
+        objRadioAndCheckbox.selenRadio.click();
+        objRadioAndCheckbox.dropDownColors.click();
+        //objRadioAndCheckbox.yellowFromDropDown.click();
+        elemWorks.assertAll();
     }
 }

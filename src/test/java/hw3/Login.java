@@ -40,6 +40,7 @@ public class Login {
     public void clickLogin(){ loginButton.click();    }
 
     public void loginTo(String strUserName,String strPasword){
+        this.openLoginForm();
         this.setLoginName(strUserName);
         this.setPasswordForm(strPasword);
         this.clickLogin();

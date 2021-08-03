@@ -5,20 +5,9 @@
             <class name="hw3.TestMenuItems"/>
         </classes>
     </test>
-    <test name="Test menu">
+    <test name="Test checkbox and radiobuttons">
         <classes>
-            <class name="hw3.TestMenuItems"/>
-        </classes>
-    </test>
-    <test name="Four texts and images">
-        <classes>
-            <class name="hw3.TestFourTextImages"/>
-            <class name="hw3.TestImagesVsTexts"></class>
-        </classes>
-    </test>
-    <test name="Test frames">
-        <classes>
-            <class name="hw3.TestFrames"/>
+            <class name="hw3.TestRadioAndCheckbox"/>
         </classes>
     </test>
 </suite>
