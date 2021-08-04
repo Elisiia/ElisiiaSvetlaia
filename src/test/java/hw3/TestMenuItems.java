@@ -35,7 +35,7 @@ public class TestMenuItems {
     @BeforeClass
     public void setupTest() {
         driver = new ChromeDriver();
-        driver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
+        driver.navigate().to(properties.getProperty("page.homeUrl"));
     }
 
     @BeforeClass
