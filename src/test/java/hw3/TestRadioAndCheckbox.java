@@ -43,6 +43,7 @@ public class TestRadioAndCheckbox {
     @Test
     public void isLogged() {
         SoftAssert isLogged = new SoftAssert();
+        //Assert.assertEquals(objLogin.username.getText(), "ROMAN IOVLEV");
         Assert.assertEquals(objLogin.username.getText(), properties.getProperty("page.expectedUsername"));
         isLogged.assertAll();
     }

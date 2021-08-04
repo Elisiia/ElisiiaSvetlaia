@@ -9,8 +9,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 public class TestImagesVsTexts {
     WebDriver driver;
+    Properties properties = loadProperties();
     @BeforeClass
     public static void setupClass() {
         WebDriverManager.chromedriver().setup();
@@ -19,7 +24,17 @@ public class TestImagesVsTexts {
     @BeforeClass
     public void setupTest() {
         driver = new ChromeDriver();
-        driver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
+        driver.navigate().to(properties.getProperty("page.homeUrl"));
+    }
+
+    private Properties loadProperties() {
+        try (InputStream input = TestMenuItems.class.getClassLoader().getResourceAsStream("resources.properties")) {
+            Properties prop = new Properties();
+            prop.load(input);
+            return prop;
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     @Test

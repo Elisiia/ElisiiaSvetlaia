@@ -33,16 +33,11 @@ public class TestMenuItems {
     }
 
     @BeforeClass
-    public void setupTest() {
-        driver = new ChromeDriver();
-        driver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
-    }
-
-    @BeforeClass
     public void test_Home_Page_Appear_Correct() {
+        driver = new ChromeDriver();
         objLogin = new Login(driver);
         objMenuItems = new MenuItems(driver);
-        objLogin.openLoginForm();
+        driver.navigate().to(properties.getProperty("page.homeUrl"));
         objLogin.loginTo(properties.getProperty("page.user"), properties.getProperty("page.password"));
 //        objLogin.loginTo("Roman", "Jdi1234");
     }
@@ -60,7 +55,8 @@ public class TestMenuItems {
     @Test
     public void isLogged() {
         SoftAssert isLogged = new SoftAssert();
-        Assert.assertEquals(objLogin.username.getText(), properties.getProperty("page.expectedUsername"));
+        Assert.assertEquals(objLogin.username.getText(), "ROMAN IOVLEV");
+        //Assert.assertEquals(objLogin.username.getText(), properties.getProperty("page.expectedUsername"));
         isLogged.assertAll();
     }
 
