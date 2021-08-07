@@ -13,7 +13,6 @@
   <test name="Four texts and images">
     <classes>
       <class name="hw3.TestFourTextImages"/>
-      <class name="hw3.TestImagesVsTexts"></class>
     </classes>
   </test>
   <test name="Test frames">

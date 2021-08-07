@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -32,20 +33,24 @@ public class TestMenuItems {
         WebDriverManager.chromedriver().setup();
     }
 
-    @BeforeClass
-    public void setupTest() {
-        driver = new ChromeDriver();
-        driver.navigate().to(properties.getProperty("page.homeUrl"));
-    }
+//    @BeforeClass
+//    public void setupTest() {
+//        driver = new ChromeDriver();
+//        driver.navigate().to(properties.getProperty("page.homeUrl"));
+//    }
 
     @BeforeClass
     public void test_Home_Page_Appear_Correct() {
+        driver = new ChromeDriver();
+        driver.navigate().to(properties.getProperty("page.homeUrl"));
         objLogin = new Login(driver);
         objMenuItems = new MenuItems(driver);
-        objLogin.openLoginForm();
+        //objLogin.openLoginForm();
         objLogin.loginTo(properties.getProperty("page.user"), properties.getProperty("page.password"));
 //        objLogin.loginTo("Roman", "Jdi1234");
     }
+    @AfterClass
+    public void closeBrowser() {driver.close();}
 
     private Properties loadProperties() {
         try (InputStream input = TestMenuItems.class.getClassLoader().getResourceAsStream("resources.properties")) {

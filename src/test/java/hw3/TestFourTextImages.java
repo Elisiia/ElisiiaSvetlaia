@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -37,6 +38,10 @@ public class TestFourTextImages {
         objFourTextImages = new FourTextImages(driver);
         driver.navigate().to(properties.getProperty("page.homeUrl"));
     }
+
+    @AfterClass
+    public void closeBrowser() {driver.close();}
+
     private Properties loadProperties() {
         try (InputStream input = TestMenuItems.class.getClassLoader().getResourceAsStream("resources.properties")) {
             Properties prop = new Properties();

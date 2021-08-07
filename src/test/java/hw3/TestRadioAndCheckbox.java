@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -29,6 +30,9 @@ public class TestRadioAndCheckbox {
         driver.navigate().to(properties.getProperty("page.homeUrl"));
         objLogin.loginTo(properties.getProperty("page.user"), properties.getProperty("page.password"));
     }
+
+    @AfterClass
+    public void closeBrowser() {driver.close();}
 
     private Properties loadProperties() {
         try (InputStream input = TestMenuItems.class.getClassLoader().getResourceAsStream("resources.properties")) {
