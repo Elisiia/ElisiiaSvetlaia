@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="SuiteEx2" verbose="1" >
+    <test name="Test login and menu">
+        <classes>
+            <class name="hw3.TestMenuItems"/>
+        </classes>
+    </test>
+    <test name="Test checkbox and radiobuttons">
+        <classes>
+            <class name="hw3.TestRadioAndCheckbox"/>
+        </classes>
+    </test>
+</suite>

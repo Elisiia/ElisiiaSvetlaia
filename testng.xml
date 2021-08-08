@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="SuiteEx1" verbose="1" >
+  <test name="Test login and menu">
+    <classes>
+      <class name="hw3.TestMenuItems"/>
+    </classes>
+  </test>
+  <test name="Test menu">
+    <classes>
+      <class name="hw3.TestMenuItems"/>
+    </classes>
+  </test>
+  <test name="Four texts and images">
+    <classes>
+      <class name="hw3.TestFourTextImages"/>
+    </classes>
+  </test>
+  <test name="Test frames">
+    <classes>
+      <class name="hw3.TestFrames"/>
+    </classes>
+  </test>
+</suite>
