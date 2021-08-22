@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="multiply and divide operations">
+    <test name="TestMultiply">
+        <classes>
+            <class name="TestMultiply"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="TestDivide">
+        <classes>
+            <class name="TestDivision"/>
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->
